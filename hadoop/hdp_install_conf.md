@@ -20,136 +20,139 @@
 # 4 配置hadoop
 
  vim core-site.xml
-> <property>
->    <name>fs.default.name</name>
->    <value>hdfs://bigdata:9000</value>
->  </property>
->
-> <property>
->    <name>hadoop.tmp.dir</name>
->    <value>/opt/hadoop-2.7.2/current/tmp</value>
->  </property>
-> <property>
->    <name>fs.trash.interval</name>
->    <value>4320</value>
->  </property>
+
+ <property>
+    <name>fs.default.name</name>
+    <value>hdfs://bigdata:9000</value>
+  </property>
+
+ <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/opt/hadoop-2.7.2/current/tmp</value>
+  </property>
+ <property>
+    <name>fs.trash.interval</name>
+    <value>4320</value>
+  </property>
 
 vim hdfs-site.xml
-><property>
->   <name>dfs.namenode.name.dir</name>
->   <value>/opt/hadoop-2.7.2/current/dfs/name</value>
-> </property>
-> <property>
->   <name>dfs.datanode.data.dir</name>
->   <value>/opt/hadoop-2.7.2/current/data</value>
-> </property>
-> <property>
->   <name>dfs.replication</name>
->   <value>1</value>
-> </property>
-> <property>
->   <name>dfs.webhdfs.enabled</name>
->   <value>true</value>
-> </property>
-> <property>
->   <name>dfs.permissions.superusergroup</name>
->   <value>staff</value>
-> </property>
-> <property>
->   <name>dfs.permissions.enabled</name>
->   <value>false</value>
-> </property>
+<property>
+   <name>dfs.namenode.name.dir</name>
+   <value>/opt/hadoop-2.7.2/current/dfs/name</value>
+ </property>
+ <property>
+   <name>dfs.datanode.data.dir</name>
+   <value>/opt/hadoop-2.7.2/current/data</value>
+ </property>
+ <property>
+   <name>dfs.replication</name>
+   <value>1</value>
+ </property>
+ <property>
+   <name>dfs.webhdfs.enabled</name>
+   <value>true</value>
+ </property>
+ <property>
+   <name>dfs.permissions.superusergroup</name>
+   <value>staff</value>
+ </property>
+ <property>
+   <name>dfs.permissions.enabled</name>
+   <value>false</value>
+ </property>
 
 vim yarn-site.xml
-><property>
->   <name>yarn.resourcemanager.hostname</name>
->   <value>bigdata</value>
-> </property>
-> <property>
->   <name>yarn.nodemanager.aux-services</name>
->   <value>mapreduce_shuffle</value>
-> </property>
-> <property>
->   <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
->   <value>org.apache.hadoop.mapred.ShuffleHandler</value>
-> </property>
-> <property>
->   <name>yarn.resourcemanager.address</name>
->   <value>bigdata:18040</value>
-> </property>
-><property>
->   <name>yarn.resourcemanager.scheduler.address</name>
->   <value>bigdata:18030</value>
-> </property>
-> <property>
->   <name>yarn.resourcemanager.resource-tracker.address</name>
->   <value>bigdata:18025</value>
-> </property> <property>
->   <name>yarn.resourcemanager.admin.address</name>
->   <value>bigdata:18141</value>
-> </property>
-><property>
->   <name>yarn.resourcemanager.webapp.address</name>
->   <value>bigdata:18088</value>
-> </property>
-><property>
->   <name>yarn.log-aggregation-enable</name>
->   <value>true</value>
-> </property>
-><property>
->   <name>yarn.log-aggregation.retain-seconds</name>
->   <value>86400</value>
-> </property>
-><property>
->   <name>yarn.log-aggregation.retain-check-interval-seconds</name>
->   <value>86400</value>
-> </property>
-><property>
->   <name>yarn.nodemanager.remote-app-log-dir</name>
->   <value>/tmp/logs</value>
-> </property>
-><property>
->   <name>yarn.nodemanager.remote-app-log-dir-suffix</name>
->   <value>logs</value>
-> </property>
+<property>
+   <name>yarn.resourcemanager.hostname</name>
+   <value>bigdata</value>
+ </property>
+ <property>
+   <name>yarn.nodemanager.aux-services</name>
+   <value>mapreduce_shuffle</value>
+ </property>
+ <property>
+   <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+   <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+ </property>
+ <property>
+   <name>yarn.resourcemanager.address</name>
+   <value>bigdata:18040</value>
+ </property>
+<property>
+   <name>yarn.resourcemanager.scheduler.address</name>
+   <value>bigdata:18030</value>
+ </property>
+ <property>
+   <name>yarn.resourcemanager.resource-tracker.address</name>
+   <value>bigdata:18025</value>
+ </property> <property>
+   <name>yarn.resourcemanager.admin.address</name>
+   <value>bigdata:18141</value>
+ </property>
+<property>
+   <name>yarn.resourcemanager.webapp.address</name>
+   <value>bigdata:18088</value>
+ </property>
+<property>
+   <name>yarn.log-aggregation-enable</name>
+   <value>true</value>
+ </property>
+<property>
+   <name>yarn.log-aggregation.retain-seconds</name>
+   <value>86400</value>
+ </property>
+<property>
+   <name>yarn.log-aggregation.retain-check-interval-seconds</name>
+   <value>86400</value>
+ </property>
+<property>
+   <name>yarn.nodemanager.remote-app-log-dir</name>
+   <value>/tmp/logs</value>
+ </property>
+<property>
+   <name>yarn.nodemanager.remote-app-log-dir-suffix</name>
+   <value>logs</value>
+ </property>
 
 vim mapred-site.xml
 
-><property>
->  <name>mapreduce.framework.name</name>
->  <value>yarn</value>
-></property>
-><property>
->  <name>mapreduce.jobtracker.http.address</name>
->  <value>bigdata:50030</value>
-></property>
-><property>
->  <name>mapreduce.jobhisotry.address</name>
->  <value>bigdata:10020</value>
-></property>
-><property>
->  <name>mapreduce.jobhistory.webapp.address</name>
->  <value>bigdata:19888</value>
-></property>
-><property>
->  <name>mapreduce.jobhistory.done-dir</name>
->  <value>/jobhistory/done</value>
-></property>
-><property>
->  <name>mapreduce.intermediate-done-dir</name>
->  <value>/jobhisotry/done_intermediate</value>
-></property>
-><property>
->  <name>mapreduce.job.ubertask.enable</name>
->  <value>true</value>
-></property>
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
+<property>
+  <name>mapreduce.jobtracker.http.address</name>
+  <value>bigdata:50030</value>
+</property>
+<property>
+  <name>mapreduce.jobhisotry.address</name>
+  <value>bigdata:10020</value>
+</property>
+<property>
+  <name>mapreduce.jobhistory.webapp.address</name>
+  <value>bigdata:19888</value>
+</property>
+<property>
+  <name>mapreduce.jobhistory.done-dir</name>
+  <value>/jobhistory/done</value>
+</property>
+<property>
+  <name>mapreduce.intermediate-done-dir</name>
+  <value>/jobhisotry/done_intermediate</value>
+</property>
+<property>
+  <name>mapreduce.job.ubertask.enable</name>
+  <value>true</value>
+</property>
 
 vim master
 
 > master
 
 vim slave
+
 > slave1
+
 > slave2
 
 vim hadoop-env.sh
